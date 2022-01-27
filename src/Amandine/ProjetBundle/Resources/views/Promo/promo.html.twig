@@ -1,0 +1,33 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+    Commande - {{ parent() }}
+{% endblock title%}
+
+{% block body %}
+{% for message in app.flashes('invalide') %}
+	    <div class="flash-invalide">
+	        {{ message }}
+	    </div>
+	{% endfor %}
+
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+<div>
+<a href="{{ path('amandine_projet_view_commande', {'id' :id}) }} "> Continuer</a>
+ </div>
+ 
+
+{# {% for key in promo %}
+ {% if promo is defined %}
+ 	votre code promo a été validé , <br> 
+ 	nouveau montant de votre commande : {{ commande.ttcprice}}
+ {% endif%}
+{% endfor %} #}
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+
+	<h2>{{ product.name }}</h2>
+	<ul class="list-group page-produit">
+		<li class="list-group-item"><span>Description</span> : {{ product.description }}</li>
+		<li class="list-group-item"><span>Entretien</span> : {{ product.maintenance }}</li>
+		<li class="list-group-item"><span>Matière</span> : {{ product.material }}</li>
+		<li class="list-group-item"><span>Prix HT</span> : {{ product.htPrice|number_format(2, '.', ',') }}</li>
+		<li class="list-group-item"><span>Couleur</span> : {{ product.color }}</li>
+		<li class="list-group-item"><span>Stock</span> : {{ product.stock }}</li>
+		<li class="list-group-item"><span>Sous-categorie</span> : {{ product.subCategory.name }}</li>
+		<li class="list-group-item"><span>Photo</span> : <img class="img-product-page" src="../../../../../web/assets/imgs/img-product/{{ product.photo }}" alt="{{ product.name }}"><img class="img-product-page" src="../../../../../web/assets/imgs/img-product/{{ product.photoBis }}" alt="{{ product.name }}"></li>
+
+	</ul>
+
+	
+	<a class="btn btn-info" href="{{ path('amandine_admin_product') }}"><i class="fas fa-undo-alt"></i></a>
+	<a class="btn btn-info" href="{{ path('amandine_admin_updateproduct', {'id' : product.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+	<a class="btn btn-info" href="{{ path('amandine_admin_deleteproduct', {'id' : product.id}) }}"><i class="fas fa-trash-alt"></i></a>
+
+	
+{% endblock %}

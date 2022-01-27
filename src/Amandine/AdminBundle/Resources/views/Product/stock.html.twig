@@ -1,0 +1,10 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<h2>Gestion du stock </h2>
+Stock actuel : {{ product.stock }}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% endblock %}

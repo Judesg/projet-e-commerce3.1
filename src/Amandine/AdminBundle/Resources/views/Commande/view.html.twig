@@ -1,0 +1,40 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+
+
+
+	<h2>Référence commande :{{ commande.id }}</h2>
+	<ul class="list-group page-commande">
+		<li class="list-group-item"><span>Client</span> : {{ commande.user.username }}</li>
+		<li class="list-group-item"><span>Statut</span> : 
+			{% if commande.validatingDate > attenteCommande %}
+        		En cour de préparation
+        	{% elseif  commande.validatingDate < expeditionCommande %}
+        		livrée
+        	{% else %}
+        		En cour de livraison
+        	{% endif %}
+		</li>
+		<li class="list-group-item"><span>Date de validation</span> : {{ commande.validatingDate|date('d-m-Y') }}</li>
+		<li class="list-group-item"><span>Mode de livraison</span> : {{ commande.livraison }}</li>
+		<li class="list-group-item"><span>Mode de paiement</span> : {{ commande.paiement }}</li>
+		<li class="list-group-item"><span>Montant total HT</span> : {{ commande.htPrice|number_format(2, '.', ',') }}€</li>
+		<li class="list-group-item"><span>Montant total TTC</span> : {{ commande.ttcPrice|number_format(2, '.', ',') }}€</li>
+		<li class="list-group-item"><span>Montant total TVA</span> : {{ commande.ttTva }}€</li>
+
+		{% if commande.promo.value is defined %}
+        	{% set valuePromo = (commande.htPrice * (1+(20/100))) - commande.ttcPricePromo %}
+			<li class="list-group-item"><span>Code Promo</span> : {{ commande.promo.code }}</li>
+        	<li class="list-group-item"><span>Montant reduction</span> : {{ valuePromo }}€</li>
+			<li class="list-group-item"><span>Montant Total TTC apres reduction</span> : {{ commande.TtcPricePromo }}€</li>
+        {% else%}
+        	
+        {% endif %}
+
+	</ul>
+
+	
+	 <a class="btn btn-info" href="{{ path('amandine_admin_commande') }}">Retour</a>
+	{# <a class="btn btn-info" href="{{ path('amandine_admin_deleteproduct', {'id' : commande.id}) }}">Supprimer</a> #}
+{% endblock %}

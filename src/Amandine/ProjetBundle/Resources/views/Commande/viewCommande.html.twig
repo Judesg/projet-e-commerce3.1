@@ -1,0 +1,21 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+    Commande - {{ parent() }}
+{% endblock title%}
+
+{% block body %}
+
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+<div>
+Votre commande n° {{ id }} a bien été validée;<br>
+L'expedition se fait sous 24h <br>
+Le delais de livraison est d'une semaine<br>
+Imprimer votre facture au format PDF<a href="{{ path('amandine_projet_facture', {'id' :id}) }} "> ICI</a>
+ </div>
+ 
+{% endblock %}

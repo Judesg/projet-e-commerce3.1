@@ -1,0 +1,116 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+	<div id="info_personnelle">
+
+    	<section>
+    		<h3>Données Personnelles</h3>
+    	</section>
+
+    	<section>
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">{{ 'profile.show.username'|trans }} : </div> 
+		    	<div class="responce_profil_user_info">{{ user.username }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">{{ 'profile.show.email'|trans }} : </div> 
+		    	<div class="responce_profil_user_info">{{ user.email }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Prénom : </div> 
+		    	<div class="responce_profil_user_info">{{ user.userFirstname }}</div>
+		    </div class="profil_info_user">
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Nom : </div> 
+		    	<div class="responce_profil_user_info">{{ user.userLastname }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Téléphone : </div> 
+		    	<div class="responce_profil_user_info">0{{ user.phone }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Date de naissance : </div> 
+		    	<div class="responce_profil_user_info">{{ user.birthDate|localizeddate('none','none','fr',null,'d MMMM Y') }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Genre : </div> 
+		    	<div class="responce_profil_user_info">{{ user.gender }}</div>
+		    </div>
+
+		    <div class="profil_info_user">
+		    	<div class="label_profil_user_info">Date d'inscription : </div> 
+		    	<div class="responce_profil_user_info">{{ user.addingDate|localizeddate('none','none','fr',null,'d MMMM Y') }}</div>
+		    </div>
+			<div id="link_change_profil">
+				<a href="{{ path('fos_user_profile_edit')}}" >Modifier mes informations</a>
+			</div>
+    	</section>
+
+	</div>
+
+	<div id="info_commande">
+		<div>
+			<section>
+				<h3>Mes Commandes en cours</h3>
+			</section>
+
+			<section>
+			
+			  {{ render(controller('Amandine\\ProjetBundle\\Controller\\CommandeController::attenteCommandeAction')) }}  
+			  {{ render(controller('Amandine\\ProjetBundle\\Controller\\CommandeController::expeditionCommandeAction')) }} 
+			</section>
+		</div>
+		<div id="info_commande_adresse">
+			<div>
+				<section>
+					<h3>Carnet d'adresse</h3>
+				</section>
+				<section>
+					<div class="profil_info_user">
+				    	<div class="label_profil_user_info">Prénom : </div> 
+				    	<div class="responce_profil_user_info">{{ user.userFirstname }}</div>
+				    </div class="profil_info_user">
+
+				    <div class="profil_info_user">
+				    	<div class="label_profil_user_info">Nom : </div> 
+				    	<div class="responce_profil_user_info">{{ user.userLastname }}</div>
+				    </div>
+				    <div class="profil_info_user">
+				    	<div class="label_profil_user_info">Adresse : </div> 
+				    	<div class="responce_profil_user_info">{{ user.address }}</div>
+				    </div>
+
+				    <div class="profil_info_user">
+				    	<div class="label_profil_user_info">Code postal : </div> 
+				    	<div class="responce_profil_user_info">{{ user.pc }}</div>
+				    </div>
+
+				    <div class="profil_info_user">
+				    	<div class="label_profil_user_info">Ville : </div> 
+				    	<div class="responce_profil_user_info">{{ user.city }}</div>
+				    </div>
+				</section>
+			</div>
+
+			<div>
+				<section>
+					<h3>Mes Dernieres Commandes</h3>
+				</section>
+				<section>
+					<div>
+						
+
+						{{ render(controller('Amandine\\ProjetBundle\\Controller\\CommandeController::afficherCommandeAction')) }}
+
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>    
+</div>

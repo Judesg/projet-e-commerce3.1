@@ -1,0 +1,10 @@
+{% for product in productAleatoire %}
+	<article>
+		<a href="{{ path('amandine_projet_produit' ,{'id' : product.id }) }}">
+			<img src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}" alt="{{ product.name }}">
+		</a>
+		<h5>{{ product.htPrice * (1+(20/100)) }} € ttc</h5>
+		<h5><a href="{{ path('amandine_projet_produit' ,{'id' : product.id }) }}">{{ product.name }}</a></h5>
+	
+	</article>
+{% endfor %}

@@ -1,0 +1,15 @@
+
+{% for commande in listCommande %}
+<article id="item-list-commande">
+	Reference Commande : {{commande.id}} <br>
+	Date de commande :{{ commande.validatingDate|localizeddate('none','none','fr',null,'d MMMM Y') }} <br>
+	prix HT: {{ commande.htPrice}}€<br>
+	prix TTC {{ commande.ttcPrice}}€<br>
+	Montant TVA :{{ commande.ttTva}}€<br>
+	Mode de paiement : {{ commande.paiement}}<br>
+	Mode de livraison {{ commande.livraison}}<br><br>
+</article>
+{% else %}
+	pas encore de commande
+{% endfor %}
+

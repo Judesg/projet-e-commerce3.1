@@ -1,0 +1,12 @@
+
+
+
+{# {{ form_start(form) }}
+
+{{ form_widget(form.htPrice, {'value': "#{ totalHT }"}) }}
+{{ form_widget(form.ttcPrice, {'value': "#{ totalTTC }"}) }}
+{{ form_widget(form.ttTva, {'value': "#{ totalTTC - totalHT}"}) }}
+{{ form_widget(form) }}
+{{ form_end(form) }} #}
+
+

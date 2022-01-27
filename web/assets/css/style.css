@@ -1,0 +1,689 @@
+/*   *    **    **    LAYOUT COMMUN     ***     ***     *  */
+.bold{
+	font-weight: bold;
+}
+
+#container-header{
+	background: url(../imgs/design/logo3.jpg) center no-repeat;
+
+	height: 420px;
+}
+
+header h1{
+	text-align: center;
+	color: #e7abc9;
+	font-family: 'Allerta Stencil', sans-serif;
+	margin: 0px 0 50px 0;
+	font-size: 55px;
+	z-index: 1;
+}
+/* header #profil{
+	padding-bottom: 130px;
+} */
+
+
+header .row{
+	background: #f8f9fa;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.69);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.69);
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.69);
+}
+nav{
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+	padding: 0 20px 0 20px;
+	z-index: 1000;
+}
+
+.top-nav{
+	margin-top: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+	color: #7dc383;
+}
+
+.navbar-light .navbar-nav .active .nav-link{
+	font-weight: bold;
+	color: #446e5c;
+}
+
+.no-connect{
+	display: flex;
+}
+
+.container-page{
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 30px 0 30px 0;
+	display: flex;
+	background: #7dc383;
+	min-height: 600px;
+}
+
+#profil{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 10px 0 10px ;
+	z-index: 1000;
+	height: 256px;
+}
+
+#profil p{
+	margin-bottom: 0;
+}
+
+#profil i{
+	font-size: 30px;
+	margin-left: 20px;
+}
+
+#profil a{
+	color: #7dc383;
+}
+#profil a:hover{
+	color: #71ae76;
+}
+
+#search-bar ul{
+	max-height: 200px;
+	overflow: auto;
+}
+
+#search-bar-phone{
+	display: none;
+}
+
+#search-bar-phone #match{
+	z-index: 1000;
+}
+
+#search-bar-phone #match img, #search-bar #match img{
+	width: 20px;
+	height: auto;
+}
+#search-bar-phone #match li, #search-bar #match li{
+	list-style-type: none;
+}
+
+#search-bar-phone #match li a, #search-bar #match li a{
+	color: black;
+}
+/*    ****      ***    LAYOUT PAGE ACCUEIL     ***    ***    *** */
+.content{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.content article{
+	margin: 0 auto;
+	margin-bottom: 60px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content h2{
+	margin-top: 150px;
+	margin-bottom: 150px;
+	font-weight: bold;
+
+
+}
+
+.content a{
+	color: black;
+	font-weight: bold;
+	padding:0;
+	background: white;
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+
+
+#accueil-nouveaute{
+	background: url("../../assets/imgs/design/1.jpg");
+}
+
+#collection-paques{
+	background: url("../../assets/imgs/design/2.jpg");
+}
+
+
+
+
+
+/*     ****     ****    LAYOUT PAGE PRODUIT     ****   ***    *** */
+.side-bar-produit{
+	width: 20%;
+}
+
+.content-produit{
+	width: 80%;
+	color: white;
+}
+
+.content-produit-list{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.content-produit-list article{
+	width: 250px; 
+	margin: 10px ;
+}
+
+.option-set{
+	display: flex;
+	flex-direction: column;
+}
+
+
+/*     ****    ****    ****   PAGE FICHE PRODUIT    ****  ****  * */
+#content-fiche-produit{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+#content-produit{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+#description-produit{
+	width: 90%;
+	margin: 0 auto;
+}
+/* ****** slider produit ****** */
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/*jssor slider bullet skin 051 css*/
+.jssorb051 .i {position:absolute;cursor:pointer;}
+.jssorb051 .i .b {fill:#7dc383;fill-opacity:0.5;}
+.jssorb051 .i:hover .b {fill-opacity:.7;}
+.jssorb051 .iav .b {fill-opacity: 1;}
+.jssorb051 .i.idn {opacity:.3;}
+
+/*jssor slider arrow skin 051 css*/
+.jssora051 {display:block;position:absolute;cursor:pointer;}
+.jssora051 .a {fill:none;stroke:#7dc383;stroke-width:360;stroke-miterlimit:10;}
+.jssora051:hover {opacity:.8;}
+.jssora051.jssora051dn {opacity:.5;}
+.jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+
+#prix-produit{
+	width: 400px;
+}
+#formulaire-ajout-produit div{
+	display: flex;
+}
+#formulaire-ajout-produit select{
+	width: 100px;
+}
+
+#mymodal{
+	z-index: 2000;
+}
+
+/*  proposition produit */
+#produit-aleatoire{
+	margin-top: 50px;
+	text-align: center;
+}
+#proposition-produit{
+	display: flex;
+	justify-content: space-around;
+
+}
+#proposition-produit article{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+}
+
+/* *****  commentaire ***** */
+#avis-commentaire{
+	padding: 30px; 
+}
+.comment-affichage{
+	margin-bottom: 30px;
+	background: white;
+	border-radius: 3px;
+	padding: 5px;
+	width: 400px;
+}
+
+.comment-affichage p{
+	margin-bottom: 0;
+}
+.comment-affichage #name-user{
+	font-weight: bold;
+}
+
+.comment-affichage #content-note{
+	display: flex;
+}
+
+#note-etoile{
+	display: flex;
+}
+.comment-affichage .sprite{
+	color: #e4d65e ;
+}
+
+.comment-affichage #name-date{
+	color:#9a9995;
+}
+
+.btn-afficher{
+	margin: 0 auto;
+	background: #7dc383;
+	color: white;
+	border-radius: 3px;
+	border: 1px solid #7dc383;
+	padding: 0 5px 0 5px;
+	text-align: center;
+	margin-top: 5px;
+	display: block;
+	width: 150px;
+	margin-bottom: 5px;
+}
+
+.btn-afficher:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+}
+
+/* formulaire commentaire  */
+.blogger{
+	width: 400px;
+	padding: 10px;
+	background: white;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+
+.blogger #comment div{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.blogger div:last-child{
+	display: flex;
+}
+
+.blogger input, .blogger textarea{
+	width: 250px;
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+.blogger textarea{
+	height: 100px;
+}
+
+.blogger input[type=submit]{
+	margin: 0 auto;
+	background: #7dc383;
+	color: white;
+}
+
+.blogger input[type=submit]:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+}
+
+/* ..****....****...PAGE COMMANDE   ***  ***    */
+#content-commande{
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+#titre-commande{
+	text-align: center;
+}
+
+#tab-commande td, th{
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+#none{
+	border-top: none;
+	border-left: none;
+}
+
+#tab-commande img{
+	width: 80px;
+}
+
+#content-commande #form{
+	display: flex;
+	flex-direction: column;
+}
+#content-commande #form select{
+	width: 120px;
+}
+
+#content-commande #form div, #total-commande div{
+	width: 300px;
+	margin-left: auto;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+#total-commande{
+	flex-direction: column;
+}
+
+#content-commande #form button{
+	margin-left: auto;
+	border: 2px solid white;
+	border-radius: 3px;
+	background: white;
+	color: #7dc383;
+	padding: 2px 20px 5px 20px;
+	font-weight: bold;
+}
+
+#content-commande #form button:hover{
+	cursor: pointer;
+	color: white;
+	background: #7dc383;
+}
+/*   ****    ****   LAYOUT PROFIL   ***  ***    */
+
+/*  formulaire d'inscription  */
+
+.fos_user_registration_register{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 3px;
+	background: white;
+}
+
+#fos_user_registration_form div{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+#fos_user_registration_form label{
+	margin-right: 20px;
+}
+#fos_user_registration_form input, #fos_user_registration_form select{
+	width: 250px;
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+#fos_user_registration_form_birthDate{
+	margin-bottom: 0px !important;
+	background: blue;
+}
+
+#fos_user_registration_form_birthDate select{
+	width: 83.3px;
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+.fos_user_registration_register div:last-child{
+	display: flex;
+}
+.fos_user_registration_register input[type=submit]{
+	margin: 0 auto;
+}
+
+.fos_user_registration_register input{
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+.fos_user_registration_register input[type=submit]{
+	height: 32px;
+	background: #7dc383;
+	color: white;
+}
+
+.fos_user_registration_register input[type=submit]:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+}
+
+/* formulaire connexcion */
+.fos_user_login_form{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 3px;
+	background: white;
+}
+
+.fos_user_login_form div:nth-child(3) , .fos_user_login_form div:nth-child(2){
+	display: flex;
+	margin-bottom: 20px;
+	justify-content: space-between;
+}
+
+.fos_user_login_form label{
+	margin-right: 20px;
+}
+
+.fos_user_login_form div:last-child{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fos_user_login_form input{
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+.fos_user_login_form input[type=submit]{
+	height: 32px;
+	background: #7dc383;
+	color: white;
+}
+
+.fos_user_login_form input[type=submit]:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+}
+
+/*  affichage profil */
+.fos_user_user_show{
+	display: flex;
+	margin: 0 20px 0 20px;
+}
+#info_commande, #info_personnelle{
+	padding: 20px 40px 20px 40px;
+	border-radius: 3px;
+	background: white;
+	margin: 0 5px 0 5px;
+}
+.profil_info_user{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 10px 10px 10px;
+	border-radius: 3px;
+}
+
+.profil_info_user div{
+	width: 180px;
+}
+
+#link_change_profil{
+	display: flex;
+}
+
+#link_change_profil a{
+	margin: 20px auto 0 auto;
+	padding: 0 20px 0 20px;
+	height: 32px;
+	background: #7dc383;
+	color: white;
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+#link_change_profil a:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+	text-decoration: none;
+	border: 1px solid #7dc383;
+}
+
+.label_profil_user_info{
+	font-weight: bold;
+}
+
+#info_commande_adresse{
+	display: flex;
+}
+
+/* formulaire modification profil */
+.fos_user_profile_edit{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 3px;
+	background: white;
+}
+
+#fos_user_profile_form div{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.fos_user_profile_edit input, .fos_user_profile_edit select{
+	width: 250px;
+	border: 1px solid #7dc383;
+	border-radius: 3px;
+}
+
+.fos_user_profile_edit label{
+	margin-right: 20px;
+}
+
+.fos_user_profile_edit input[type=submit]{
+	height: 32px;
+	background: #7dc383;
+	color: white;
+	margin: 0 auto;
+}
+
+.fos_user_profile_edit input[type=submit]:hover{
+	cursor: pointer;
+	background: white;
+	color: #7dc383;
+}
+
+.fos_user_profile_edit div:last-child{
+	display: flex;
+}
+
+#item-list-commande{
+	font-size: 8px;
+}
+/*     ****    ****    ****    PAGE LIVRAISON   ****    ****   ** */
+.content-livraison{
+	padding: 20px;
+	color: white;
+}
+
+.content-livraison h2{
+	text-align: center;
+	font-size: 40px;
+	text-decoration: underline;
+	margin-bottom: 50px;
+}
+
+/*     ****     ****    ***   CONTACT    ****     *****     ******  */
+.content-contact h2{
+	color: white;
+	text-align: center;
+	text-decoration: underline;
+	margin-bottom: 50px;
+	font-size: 40px;
+}
+/*     ***     ****    **** FOOTER  ****     *****     *******    */
+#content-footer{
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+}
+
+#service, #reseau-paiement, #corps-footer{
+	display: flex;
+	justify-content: space-around;
+}
+
+#service article{
+	text-align: center;
+}
+
+#corps-footer li{
+	list-style-type: none;
+}
+
+#corps-footer a {
+	color: black;
+}
+
+#reseaux-sociaux a{
+	color: black;
+}
+
+#copyright{
+	text-align: center;
+}
+
+
+
+
+.loading{
+	background: url(../imgs/design/ajax-loader-2.gif);
+}
+
+
+.user{
+	display: flex;
+	margin: 0 auto;
+	flex-direction: column;
+	margin: 50px auto 50px auto;
+}
+
+
+}

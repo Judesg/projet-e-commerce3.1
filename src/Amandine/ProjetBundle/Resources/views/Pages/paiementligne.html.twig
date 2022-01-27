@@ -1,0 +1,166 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  Paiement en ligne - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+		<section class="content-livraison">
+			<h2>Paiement en ligne</h2>
+
+			<div>
+				<h3>Paiement par carte bancaire</h3>
+				<p>Les paiements par carte bancaire s’effectuent en totalité à la commande, et en euros exclusivement.<br><br>
+				Les paiements par carte bancaire sont sécurisés par la solution Merc@net de BNP Paribas, conformément aux réglementations interbancaires françaises et internationales.<br><br>
+				Cette solution permet à l’acheteur d’effectuer ses achats en toute sécurité.<br>
+				Lors du paiement en ligne de votre commande, vous êtes automatiquement transféré sur le serveur de la banque grâce à une transaction sécurisée en mode SSL (session clé à 128 bits, conformément aux autorisations du Gouvernement français). Le numéro de carte est ainsi crypté, entre le navigateur et le serveur Merc@net.<br><br>
+				L’ensemble des informations relatives à votre Carte Bancaire est uniquement enregistré dans les bases de données de BNP Paribas, et non dans celles de Maisons du Monde. En aucune manière, nous ne recevons, ni n’enregistrons ou ne conservons quelque élément que ce soit concernant vos informations bancaires.<br>
+				Après la validation de votre paiement par BNP Paribas, vous serez automatiquement re-transféré sur notre site. Les données personnelles renseignées dans le « cookie » seront alors supprimées.<br>
+				Les commandes n’étant prises en compte qu’après validation de leur règlement, aucun escompte ou pénalité de retard ne sont applicables.</p>
+			</div>
+
+			<div>
+				<h3>Paiements par carte bancaire avec authentification 3D-Secure</h3>
+				<p>Le protocole 3D-Secure (également appelé Verified by Visa MasterCard SecureCode ) vous permet de bénéficier d’une protection renforcée pour vos achats en ligne grâce à un système d’authentification.<br><br>
+				Après avoir validé vos coordonnées bancaires, une fenêtre 3D-Secure gérée par votre banque s’affichera. La saisie d’un code d’authentification, propre à chaque banque (date de naissance, code reçu par SMS…), permettra de vérifier que vous êtes bien le porteur de la carte utilisée pour le paiement. Votre paiement sera validé et votre transaction finalisée après confirmation de la banque.<br><br>
+				Attention : vérifiez au moment de votre commande que vous pouvez recevoir le SMS d'authentification.</p>
+			</div>
+
+			<div>
+				<h3>Paiements par chèque bancaire "uniquement pour les facturations en France"</h3>
+				<p>Les paiements par chèque bancaire s'effectuent en totalité à la commande, et en euros exclusivement.<br><br>
+				Sur la page "récapitulatif de commande", lors de votre choix du mode de paiement, sélectionnez "Valider ma commande, règlement par chèque bancaire".<br><br>
+				Au dos de votre chèque, indiquez la référence de votre commande que nous vous fournissons, puis, dans les champs prévus à cet effet, renseignez votre nom, le nom de la banque et les 7 chiffres du numéro de chèque que vous trouverez sur votre chèque.<br><br>
+				Le chèque doit être émis par une banque domiciliée en France métropolitaine et libellé à l'ordre de Maisons du Monde.<br><br>
+				Adressez votre chèque à :<br><br>
+				LE DODO PARISIEN<br>
+				Service Comptabilité Internet<br>
+				Le Portereau<br>
+				BP 52402<br>
+				44124 Vertou<br><br>
+				IMPORTANT : en cas de paiement par chèque, les délais de livraison seront allongés correspondant au temps de réception et de traitement de votre chèque.<br><br>
+				Pour plus d’informations, reportez vous aux conditions générales de vente </p>
+			</div>
+
+			<div>
+				<h3>Paiement par Cetelem "uniquement pour les facturations et livraisons en France"</h3>
+				<p> Maisons du Monde vous propose de payer votre achat en 4, 5, 10 ou 20 mois, avec Cetelem.
+				Comment ça marche ?<br><br>
+				<h4>La facilité de paiement 4 fois sans frais - Gratuit</h4>
+
+				Il s'agit d'une solution de paiement en 4 fois sans frais par carte bancaire Visa ou Mastercard* qui
+				permet d'échelonner le paiement de la commande en 4 débits suivant l'échéancier suivant :<br><br>
+
+				1ère échéance le jour de votre commande : 1/4 du montant du panier<br>
+				2ème échéance : 30 jours aprés votre commande de 1/4 du montant du panier<br>
+				3ème échéance : 60 jours aprés votre commande de 1/4 du montant du panier<br>
+				4ème échéance : 85 jours aprés votre commande de 1/4 du montant du panier.<br>
+
+				(*)Pour bénéficier du paiement en 4 fois par carte Bancaire, il suffit de respecter les
+				conditions ci-dessous :<br><br>
+
+				- le montant de votre panier doit être compris entre 90€ et 3000€<br>
+				- vous devez résider en France Métropolitaine<br>
+				- vous devrez être majeur<br>
+				- le paiement doit s'effectuer via une CB Visa ou Mastercard (hors cartes Electron,
+				Maestro, e-CB et CB pré payée)<br>
+				- votre carte bancaire doit être valide dans les 90 jours qui suivent votre première date
+				d'échéance.<br><br>
+
+				La souscription au 4 fois par Carte Bancaire nécessite la signature électronique par double clic
+				d'un contrat de financement de moins de 90 jours, contrat pour lequel vous disposez d'un délai
+				de rétractation de 14 jours calendaires à compter de sa conclusion.<br><br>
+
+				Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier avant
+				l'obtention d'un ou plusieurs prêts d'argent.<br><br>
+
+				Exemple : pour un panier à régler de 200€ : 4 échéances de 50€ chacune. Le coût total de
+				l'opération à crédit est pris à la charge de www.maisonsdumonde.com . Conditions en vigueur
+				au 01/01/2017.<br><br>
+
+				Le "Paiement en 4 fois par carte bancaire" vous sera proposé à l'étape du choix de paiement
+				(une fois votre panier validé).<br><br>
+
+				Pour toutes vos questions sur le fonctionnement du paiement en 4 fois par Carte Bancaire
+				penser à consulter la FAQ : www.cetelem.fr/aide/questions-reponses sur le site
+				www.cetelem.fr<br><br>
+
+				BNP Paribas Personal Finance, SA au capital de 529 548 810 € - SIREN 542 097 902 RCS
+				Paris<br><br>
+				1, boulvard Haussmann 75 318 Paris Cedex 09 - N°ORIAS : 07 023 128<br><br>
+				<h4>Le crédit classique</h4>
+				
+
+				1- Vous choisissez la durée qui vous convient, 5, 10, 20 ou 30 mois<br>
+				2- Vous remplissez un formulaire de demande de crédit en ligne<br>
+				3- Nous vous donnons une réponse de principe immédiate<br><br>
+
+				2 possibilités s’offrent à vous :<br>
+
+				Votre achat est inférieur à 1500 € et le délai de livraison théorique est inférieur à 30 jours :<br><br>
+
+				En complément des informations nécessaires à l’étude de votre demande en ligne, une emprunte de votre carte bancaire est prise afin de prendre en compte votre commande immédiatement.<br><br>
+				Vous bénéficiez ainsi d’une livraison rapide, votre carte bancaire servant de garantie si vous décidez de ne pas retourner votre dossier de crédit complet ainsi que les justificatifs nécessaires.<br><br>
+				Notre réponse de principe est immédiate et votre commande est validée (sans attendre l'étude et l'acceptation définitive de votre demande de crédit)<br><br>
+				Si vous ne renvoyez pas votre votre dossier complet dans les 15 jours, ou en cas de refus après étude, votre commande sera réglée par le débit de votre carte bancaire en 2 fois avec frais (frais à préciser).<br><br>
+				Mes étapes :<br><br>
+				1- Je remplis ma demande de crédit<br>
+				2- J'indique les numéros de ma carte bancaire je renseigne mon emprunte de carte bancaire<br>
+				3- Je reçois mon offre préalable de crédit par courrier<br>
+				4- Je renvoie mon offre préalable de crédit signée et accompagnée des pièces justificatives demandées dans un délai de 15 jours.<br>
+				5- Ma commande est réglée par débit de mon compte bancaire suivant les conditions de crédit ci dessus, après expiration des délais de rétractation de 14 jours<br>
+
+				Votre achat est supérieur à 1500 € et/ou le délai de livraison théorique est supérieure à 30 jours :<br><br>
+
+				Notre réponse de principe est immédiate (pré acceptation, étude ou refus) mais votre commande ne sera validée qu'après réception de votre offre préalable de crédit, étude de votre dossier et validation des justificatifs.<br><br>
+				Si vous ne renvoyez pas votre dossier complet dans les 30 jours, ou en cas de refus après étude, votre commande sera annulée<br><br>
+				Le délai de livraison théorique sera augmenté du délai entre la date de votre commande et la date de réception de votre dossier chez Cetelem ; renvoyez le donc au plus vite.<br><br>
+				Mes étapes :<br><br>
+				1- Je remplis ma demande de crédit<br>
+				2- Je reçois mon offre préalable de crédit par courrier<br>
+				3- Je renvoie mon offre préalable de crédit signée et accompagnée des pièces justificatives demandées dans un délai de 30 jours.<br>
+				4- Ma commande est réglée par débit de mon compte bancaire suivant les conditions de crédit choisies, après expiration des délais de rétractation. </p>
+			</div>
+
+			<div>
+				<h3>Paiement par virement</h3>
+				<p>Les paiements par virement bancaire s'effectuent en totalité à la commande.<br><br>
+
+				Sur la page "récapitulatif de commande", lors de votre choix du mode de paiement, sélectionnez "Virement".<br><br>
+
+				Vous disposerez ensuite de 3 jours pour faire parvenir votre règlement par virement sur le compte bancaire Maisons du Monde (références accessibles lors de la validation de votre commande et dans un e-mail récapitulatif). Passé ce délai, votre commande sera annulée.<br><br>
+
+				Votre commande sera validée définitivement dès réception de votre virement. Un e-mail de confirmation vous sera alors adressé.<br><br>
+
+				IMPORTANT : en cas de paiement par virement, les délais de livraison seront allongés correspondant au temps de réception et de traitement de votre virement.</p>
+			</div>
+
+			<div>
+				<h3>Paiement par Carte Cadeau</h3>
+				<p>La carte cadeau Maisons du Monde est valable 1 an à partir de sa date d'activation. La date d’activation correspond à la date de votre passage en caisse pour les cartes achetées en magasin, ou à la date d’envoi par e-mail pour les cartes achetées en ligne.<br><br>
+
+				Elle s’utilise aussi bien en magasin (hors magasins de La Réunion : Sainte-Marie et Saint-André) que sur notre site, pour vous offrir toujours plus de choix !<br><br>
+
+				Cumulables dans la limite de 5 cartes et 3 000 € d’achat. Elle ne peut faire l'objet ni d'un échange, ni d'un remboursement, ni d'un rendu monnaie, pour quelque motif que ce soit.<br><br>
+
+				En cas de défaillance du système d'alerte, la durée de validité de la carte ne saurait être prorogée.</p>
+			</div>
+
+			<div>
+				<h3>Paiement avec PayPal</h3>
+				<p>PayPal est un moyen de paiement sécurisé qui vous permet de payer rapidement vos articles sans partager vos données bancaires avec les sites vendeurs.Il vous suffit en effet de les avoir indiquées lors de la création de votre compte PayPal. Elles sont alors cryptées et sécurisées une fois pour toutes. Si vous possédez déjà un compte PayPal, vous pouvez l’utiliser sur notre site pour régler vos achats rapidement et en toute sécurité. Si vous n’avez pas de compte PayPal, vous pouvez tout de même choisir ce moyen de paiement. Au moment de régler, vous êtes alors dirigés vers une page PayPal où vous renseignez vos données bancaires [et choisissez ou non de créer un compte PayPal.</p>
+			</div>
+
+			<div>
+				<h3>Paiement par avoir</h3>
+				<p>L’avoir est utilisable sur le site du pays du magasin émetteur et est valable 1 an à partir de sa date d’émission.<br><br>
+				L’avoir est utilisable en une ou plusieurs fois.<br><br>
+				L’avoir peut être utilisé en complément d’un autre moyen de paiement sauf carte cadeau et bon d’achat.<br><br>
+
+				Sur la page "récapitulatif de commande", lors de votre choix du mode de paiement, sélectionnez "Utilisez une carte cadeau, un bon d’achat ou un avoir", sélectionnez "Avoir" et entrez le numéro et le code de sécurité de votre avoir.</p>
+			</div>
+
+		</section>
+
+{% endblock %}

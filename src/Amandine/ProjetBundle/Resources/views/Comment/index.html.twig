@@ -1,0 +1,24 @@
+
+{% for listcomment in listcomment %}
+    <article class="comment-affichage {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ listcomment.id }}">
+
+            <p id="name-user">{{ listcomment.user }}</p>
+            <div id="content-note">
+	        	<div id="note-etoile">
+	        		{% for i in 1..5 %}
+						{% if i<listcomment.note  or i==listcomment.note %}
+							<div class="sprite etoile-vide"><i class="fas fa-star"></i></div>
+						{% else %}
+							<div class="sprite etoile-pleine"><i class="far fa-star"></i></div>
+						{% endif %}
+					{% endfor %}
+				</div>
+	        	<p id="name-title">{{ listcomment.title}}</p>
+	        </div>
+			<p id="name-date">{{ listcomment.createDate|localizeddate('none','none','fr',null,'d MMMM Y') }}</p>
+
+        	<p id="content-comment">{{ listcomment.content }}</p>
+    </article>
+{% else %}
+    <p>Soyez le premier à laisser un commentaire sur cet article.</p>
+{% endfor %}

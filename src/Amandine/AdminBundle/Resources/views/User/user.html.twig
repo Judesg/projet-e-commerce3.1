@@ -1,0 +1,46 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<h2>Visualisé ici tout vos utilisateurs</h2>
+		
+  	<table class="table" id="table-a-trier">
+  		<thead class="thead">
+		  	<tr>
+		  		<th>Pseudo</th>
+		  		<th>Nom</th>
+		  		<th>Prenom</th>
+		  		<th>email</th>
+		  		<th>date de naissance</th>
+		  		<th>ville</th>
+		  		<th></th>
+
+		  	
+		  	</tr>
+	  	</thead>
+	  	<tbody>
+		  	{% for user in listUsers %}
+		      <tr>
+		        <td>
+		        	<a href="{{ path('amandine_admin_viewuser', {'id': user.id}) }}">{{ user.username }}</a>
+		        </td>  
+		        <td>{{ user.userLastname }}</td>
+		        <td>{{ user.userFirstname }}</td>
+		        <td>{{ user.email }}</td>
+		        <td>{{ user.birthDate|date('Y-m-d')  }}</td>
+		        <td>{{ user.city }}</td>
+		        <td>
+
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_viewuser', {'id': user.id}) }}"><i class="fas fa-search-plus"></i></a>
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_updateuser', {'id' : user.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+					<a class="btn btn-info" href="{{ path('amandine_admin_deleteuser', {'id' : user.id}) }}"><i class="fas fa-trash-alt"></i></a>
+		        </td>
+		        
+		      </tr>
+		    {% else %}
+		      <tr><td>Pas de membre</td></tr>
+		    {% endfor %}
+	    </tbody>
+  	</table>
+
+
+{% endblock %}

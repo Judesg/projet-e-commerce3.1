@@ -1,0 +1,44 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<h2>Visualisé ici tout les commentaires</h2>
+
+
+
+<table class="table" id="table-a-trier">
+  		<thead class="thead">
+		  	<tr>
+		  		<th>Utilisateur</th>
+		  		<th>Date</th>
+		  		<th>Titre</th>
+		  		<th>Note</th>
+		  		<th>Commentaire</th>
+		  		<th>Produit</th>
+		  		<th></th>
+		  	</tr>
+	  	</thead>
+	  	<tbody>
+		  	{% for comment in listComment %}
+		      <tr>  
+		        <td>{{ comment.user.username }}</td>
+		        <td>{{ comment.createDate|date('Y-m-d') }}</td>
+		        <td>{{ comment.title }}</td>
+		        <td>{{ comment.note }}</td>
+		        <td><p id="content-wrap">{{ comment.content }}</p></td>
+		        <td>{{ comment.product.name  }}</td>
+
+		        <td>
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_deletecomment', {'id' : comment.id}) }}"><i class="fas fa-trash-alt"></a>
+
+		        	{#<a class="btn btn-info" href="{{ path('amandine_admin_viewuser', {'id': user.id}) }}"><i class="fas fa-search-plus"></i></a>
+		        	 <a class="btn btn-info" href="{{ path('amandine_admin_updateuser', {'id' : user.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+					<a class="btn btn-info" href="{{ path('amandine_admin_deletecomment', {'id' : user.id}) }}"><i class="fas fa-trash-alt"></a> #}
+		        </td>
+		        
+		      </tr>
+		    {% else %}
+		      <tr><td>Pas de commentaire</td></tr>
+		    {% endfor %}
+	    </tbody>
+  	</table>
+{% endblock %}

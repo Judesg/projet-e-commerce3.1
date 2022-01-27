@@ -1,0 +1,131 @@
+amandine_projet_accueil:
+    path:     /accueil
+    defaults: { _controller: AmandineProjetBundle:Pages:accueil }
+
+amandine_projet_allproduit:
+    path:     /produit
+    defaults: { _controller: AmandineProjetBundle:Pages:allproduit }
+
+amandine_projet_livraison:
+    path:     /livraison
+    defaults: { _controller: AmandineProjetBundle:Pages:livraison }
+
+amandine_projet_retour:
+    path:     /retour
+    defaults: { _controller: AmandineProjetBundle:Pages:retour }
+
+amandine_projet_paiementligne:
+    path:     /paiementligne
+    defaults: { _controller: AmandineProjetBundle:Pages:paiementligne }
+
+amandine_projet_cgv:
+    path:     /cgv
+    defaults: { _controller: AmandineProjetBundle:Pages:cgv }
+
+amandine_projet_mention:
+    path:     /mention
+    defaults: { _controller: AmandineProjetBundle:Pages:mention }
+
+amandine_projet_contact:
+    path:     /contact
+    defaults: { _controller: AmandineProjetBundle:Pages:contact }
+
+
+amandine_projet_nouveaute:
+    path: /nouveaute
+    defaults: { _controller: AmandineProjetBundle:Product:nouveaute}
+
+amandine_projet_meilleure_vente:
+    path: /meilleurevente
+    defaults: { _controller: AmandineProjetBundle:Product:meilleureVente}
+
+amandine_projet_subcategoryproduit:
+    path:     /produit/all/{subCategory}
+    defaults: { _controller: AmandineProjetBundle:Product:subcategoryproduit }
+
+amandine_projet_produit:
+    path:     /produit/{id}
+    defaults: { _controller: AmandineProjetBundle:Product:produit }
+
+amandine_projet_product_aleatoire:
+    path: /product/aleatoire
+    defaults: { _controller: AmandineProjetBundle:Product:productAleatoire}
+
+amandine_projet_comment_create:
+    path: /comment/{id}
+    defaults: { _controller: AmandineProjetBundle:Comment:create }
+    requirements:
+        _method: POST
+        id:  \d+
+
+amandine_projet_return_product:
+    path: /returnProductsByCategory
+    defaults: { _controller: AmandineProjetBundle:Product:returnProductsByCategory }
+
+
+amandine_autocomplete:
+    path: /accueil
+    defaults: { _controller: AmandineProjetBundle:Autocomplete:index }
+
+amandine_ajax_autocomplete_product:
+    path: /accueil/ajax/autocomplete/update/data
+    defaults: { _controller: AmandineProjetBundle:AjaxAutoComplete:updateData}
+
+amandine_projet_product_rechercher:
+    path: /product/rechercher
+    defaults: { _controller: AmandineProjetBundle:Pages:rechercher}
+    requirements: 
+        _method: POST
+
+
+amandine_projet_basket:
+    path: /basket 
+    defaults: { _controller: AmandineProjetBundle:LiaisonBasket:viewBasket}
+
+amandine_projet_add_basket:
+    path: /basket/add/{id}
+    defaults: { _controller: AmandineProjetBundle:LiaisonBasket:addBasket}
+
+amandine_projet_remove_basket:
+    path: /remove/{id}
+    defaults: { _controller: AmandineProjetBundle:LiaisonBasket:removeBasket}
+
+amandine_projet_remove_all_basket:
+    path: /basket/remove
+    defaults: { _controller: AmandineProjetBundle:LiaisonBasket:lostBasket}
+
+amandine_projet_mode_livraison:
+    path: /livraison/mode
+    defaults: { _controller: AmandineProjetBundle:Commande:livraison}
+
+
+amandine_projet_commande:
+    path: /commande
+    defaults: { _controller: AmandineProjetBundle:Commande:Commande}
+
+amandine_projet_promo:
+    path: /commande/promo/{id}
+    defaults: { _controller: AmandineProjetBundle:Promo:Promo}
+
+amandine_projet_view_commande:
+    path: /commande/view/{id}
+    defaults: { _controller: AmandineProjetBundle:Commande:viewCommande}
+
+amandine_projet_afficher_commande:
+    path: /commande/afficher
+    defaults: { _controller: AmandineProjetBundle:Commande:afficherCommande}
+
+amandine_projet_expedition_commande:
+    path: /commande/expedition
+    defaults: { _controller: AmandineProjetBundle:Commande:expeditionCommande}
+
+amandine_projet_attente_commande:
+    path: /commande/attente
+    defaults: { _controller: AmandineProjetBundle:Commande:attenteCommande}
+
+amandine_projet_facture:
+    path: /facture/{id}
+    defaults: { _controller: AmandineProjetBundle:PdfGenerator:facture}
+
+
+

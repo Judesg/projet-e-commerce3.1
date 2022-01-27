@@ -1,0 +1,29 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+
+	<h2>{{ user.username }}</h2>
+	<ul class="list-group page-produit">
+		<li class="list-group-item"><span>Identifiant</span> : {{ user.id }}</li>
+		<li class="list-group-item"><span>Date d'inscription</span> : {{ user.addingDate|date('d-m-Y') }}</li>
+		<li class="list-group-item"><span>Nom</span> : {{ user.userLastname }}</li>
+		<li class="list-group-item"><span>Prenom</span> : {{ user.userFirstname }}</li>
+		<li class="list-group-item"><span>Email</span> : {{ user.email }}</li>
+		<li class="list-group-item"><span>Genre</span> : {{ user.gender }}</li>
+		<li class="list-group-item"><span>Date de naissance</span> : {{ user.birthDate|date('d-m-Y') }}</li>
+		<li class="list-group-item"><span>Adresse</span> : {{ user.address }}</li>
+		<li class="list-group-item"><span>Code Postal</span> : {{ user.pc }}</li>
+		<li class="list-group-item"><span>Ville</span> : {{ user.city }}</li>
+		<li class="list-group-item"><span>Telephone</span> : {{ user.phone }}</li>
+		<li class="list-group-item"><span>Derniere connexion</span> : {{ user.lastLogin|date('d-m-Y') }}</li>
+		
+
+	</ul>
+
+	
+	<a class="btn btn-info" href="{{ path('amandine_admin_user') }}"><i class="fas fa-undo-alt"></i></a>
+	<a class="btn btn-info" href="{{ path('amandine_admin_updateuser', {'id' : user.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+	<a class="btn btn-info" href="{{ path('amandine_admin_deleteuser', {'id' : user.id}) }}"><i class="fas fa-trash-alt"></i></a>
+
+	
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  Page d'accueil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<div class="container-page">
+		<aside class="side-bar">
+			<ul>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+				<li>trucs micuyhe </li>
+			</ul>
+		</aside>
+
+		<section class="content">
+		  <h2>Page d'accueil de notre site</h2>
+
+		  {# On affiche tous les messages flash dont le nom est « info » #}
+		  {% for message in app.session.flashbag.get('info') %}
+		    <div class="alert alert-info">Message flash : {{ message }}</div>
+		  {% endfor %}
+
+		  {# Pour afficher les dernières annonces, on réutilise le contrôleur menu du ProjetBundle #}
+		  <h3>Les nouveautés</h3>
+		</section>
+	</div>	
+
+  
+
+{% endblock %}

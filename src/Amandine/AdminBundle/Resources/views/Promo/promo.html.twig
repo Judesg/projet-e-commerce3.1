@@ -1,0 +1,46 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<h2>Visualisé ici toutes vos promotions</h2>
+		
+  	<table class="table" id="table-a-trier">
+  		<thead class="thead">
+		  	<tr>
+		  		<th>Référence </th>
+		  		<th>Type</th>
+		  		<th>date de fin</th>
+		  		<th>date de debut</th>
+		  		<th>code</th>
+		  		<th>valeur</th>
+		  		<th></th>
+
+		  	
+		  	</tr>
+	  	</thead>
+	  	<tbody>
+		  	{% for promo in listPromos %}
+		      <tr>
+		        <td>
+		        	<a href="{{ path('amandine_admin_viewpromo', {'id': promo.id}) }}">{{ promo.id }}</a>
+		        </td>  
+		        <td>{{ promo.type }}</td>
+		        <td>{{ promo.deadline|date('Y-m-d') }}</td>
+		        <td>{{ promo.startingDate|date('Y-m-d')  }}</td>
+		        <td>{{ promo.code }}</td>
+		        <td>{{ promo.value }}</td>
+		        <td>
+
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_viewpromo', {'id': promo.id}) }}"><i class="fas fa-search-plus"></i></a>
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_updatepromo', {'id' : promo.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+					<a class="btn btn-info" href="{{ path('amandine_admin_deletepromo', {'id' : promo.id}) }}"><i class="fas fa-trash-alt"></i></a>
+		        </td>
+		        
+		      </tr>
+		    {% else %}
+		      <tr><td>Pas de promotions </td></tr>
+		    {% endfor %}
+	    </tbody>
+  	</table>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<h2>Visualisé ici toutes les commandes</h2>
+
+<table class="table" id="table-a-trier">
+  		<thead class="thead">
+		  	<tr>
+		  		<th data-sort="int">Réf</th>
+		  		<th data-sort="int">Date</th>
+		  		<th data-sort="int">Montant TTC</th>
+		  		<th data-sort="string">Client</th>
+		  		<th data-sort="string">Statut</th>
+		  		<th data-sort="string">Montant Reduc</th>
+		  		<th data-sort="string">Montant TTC Reduc</th>
+
+		  		<th ></th>
+		  	</tr>
+	  	</thead>
+	  	<tbody>
+		  	{% for commande in listCommande %}
+		      <tr>  
+		        <td data-sort-value="{{ commande.id }}">{{ commande.id }}</td>
+		        <td data-sort-value="{{ commande.validatingDate|date('Y-m-d') }}">{{ commande.validatingDate|date('Y-m-d') }}</td>
+		        <td data-sort-value="{{ commande.ttcPrice }}">{{ commande.ttcPrice }}</td>
+		        <td data-sort-value="{{ commande.user.username }}">{{ commande.user.username }}</td>
+		        <td data-sort-value="statut">
+		        
+		        	{% if commande.validatingDate > attenteCommande %}
+		        		En cour de préparation
+		        	{% elseif  commande.validatingDate < expeditionCommande %}
+		        		livrée
+		        	{% else %}
+		        		En cour de livraison
+		        	{% endif %}
+
+		        </td>
+		        
+		        {% if commande.promo.value is defined %}
+		        	{% set valuePromo = (commande.htPrice * (1+(20/100))) - commande.ttcPricePromo %}
+		        	<td data-sort-value="{{ valuePromo }}">{{ valuePromo }}€</td>
+		        {% else%}
+		        	<td data-sort-value="Null"></td>
+		        {% endif %}
+
+		        {% if commande.promo.value is defined %}
+		        	<td data-sort-value="{{ commande.TtcPricePromo }}">{{ commande.TtcPricePromo }}€</td>
+		        {% else%}
+		        	<td data-sort-value="Null"></td>
+		        {% endif %}
+
+		        <td>
+		        	<a class="btn btn-info" href="{{ path('amandine_admin_viewcommande', {'id' : commande.id}) }}"><i class="fas fa-search-plus"></i></a>
+		        </td>
+		        
+		      </tr>
+		    {% else %}
+		      <tr><td>Pas de commande</td></tr>
+		    {% endfor %}
+	    </tbody>
+  	</table>
+  	
+{% endblock %}

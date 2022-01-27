@@ -1,0 +1,67 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  Page produit - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+		<aside class="side-bar-produit">
+			<form id="form_recherche" action="{{ path('amandine_projet_product_rechercher') }}" method="post">{{ form_start(form) }}
+			    {{ form_widget(form) }}
+			    <input type="submit" value="Rechercher" />
+			</form>
+		</aside>
+
+		<section class="content-produit">
+		  <h2>Page produit</h2>
+		  <div class="content-produit-list">
+		  <div class="loading"></div>
+				<div id="resultats_recherche"> 
+			 {% for product in product %}
+
+			 	<article>
+			 		<img class="img-product-page" src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}" alt="{{ product.name }}">
+			 		<h3>{{ product.htPrice * (1+(20/100)) }}</h3>
+			 		<h3>{{ product.name }}</h3>
+
+			 	</article> 
+
+			 	
+			
+				
+
+			 {% endfor %}
+			</div>
+		  </div>
+
+		  
+
+		  
+		</section>
+
+		<div class="text-center">{{ knp_pagination_render(product) }}</div>
+
+		<script>
+		$(document).ready(function(){
+			$(".loading").hide();
+			$("#form_recherche").submit(function(){ 
+			    $(".loading").show();
+			    var name = $("#productrecherche_name").val();
+			    var DATA = 'name=' + name;
+			    $.ajax({
+			        type: "POST",
+			        url: "{{ path('amandine_projet_product_rechercher')}}",
+			        data: DATA,
+			        cache: false,
+			        success: function(data){
+			           $('#resultats_recherche').html(data);
+			           $(".loading").hide();
+			        }
+			    });    
+			    return false;
+			});
+		});
+		</script>
+
+{% endblock %}

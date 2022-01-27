@@ -1,0 +1,6 @@
+<form class="blogger" action="{{ path('amandine_projet_comment_create', { 'id' : comment.product.id } ) }}" method="post"> {{ form_start(form) }} 
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>

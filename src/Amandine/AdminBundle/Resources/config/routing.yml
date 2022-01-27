@@ -1,0 +1,99 @@
+amandine_admin_homepage:
+    path:     /admin
+    defaults: { _controller: AmandineAdminBundle:Default:index }
+
+amandine_admin_product:
+    path: /admin/product
+    defaults: { _controller: AmandineAdminBundle:Product:product }
+
+amandine_admin_addproduct:
+    path: /admin/product/add
+    defaults: { _controller: AmandineAdminBundle:Product:add }
+
+amandine_admin_viewproduct:
+    path: /admin/product/view/{id}
+    defaults: { _controller: AmandineAdminBundle:Product:view }
+
+amandine_admin_updateproduct:
+    path: /admin/product/update/{id}
+    defaults: { _controller: AmandineAdminBundle:Product:update }
+
+amandine_admin_deleteproduct:
+    path: /admin/product/delete/{id}
+    defaults: { _controller: AmandineAdminBundle:Product:delete }
+
+amandine_admin_stockproduct:
+    path: /admin/product/stock/{id}
+    defaults: { _controller: AmandineAdminBundle:Product:stock }
+
+amandine_admin_user:
+    path: /admin/user
+    defaults: { _controller: AmandineAdminBundle:User:user}
+
+amandine_admin_viewuser:
+    path: /admin/user/view/{id}
+    defaults: { _controller: AmandineAdminBundle:User:view}
+
+amandine_admin_updateuser:
+    path: /admin/user/update/{id}
+    defaults: { _controller: AmandineAdminBundle:User:update }
+
+amandine_admin_adduser:
+    path: /admin/user/add
+    defaults: { _controller: AmandineAdminBundle:User:add }
+
+amandine_admin_deleteuser:
+    path: /admin/user/delete/{id}
+    defaults: { _controller: AmandineAdminBundle:User:delete }
+
+amandine_admin_comment:
+    path: /admin/comment
+    defaults: { _controller: AmandineAdminBundle:Comment:comment}
+
+amandine_admin_deletecomment:
+    path: /admin/comment/delete/{id}
+    defaults: { _controller: AmandineAdminBundle:Comment:delete }
+
+amandine_admin_autocomplete:
+    path: /admin/product
+    defaults: { _controller: AmandineAdminBundle:Autocomplete:index }
+
+amandine_admin_ajax_autocomplete_product:
+    path: /admin/product/ajax/autocomplete/update/data
+    defaults: { _controller: AmandineAdminBundle:AjaxAutoComplete:updateData}
+
+amandine_admin_autocomplete_user:
+    path: /admin/user
+    defaults: { _controller: AmandineAdminBundle:UserAutocompleteuser:index }
+
+amandine_admin_ajax_autocomplete_user:
+    path: /admin/user/ajax/autocomplete/update/data
+    defaults: { _controller: AmandineAdminBundle:UserAjaxAutoComplete:updateData}
+
+amandine_admin_commande:
+    path: /admin/commande
+    defaults: { _controller: AmandineAdminBundle:Commande:commande}
+
+amandine_admin_viewcommande:
+    path: /admin/commande/{id}
+    defaults: { _controller: AmandineAdminBundle:Commande:view}
+
+amandine_admin_promo:
+    path: /admin/promo
+    defaults: { _controller: AmandineAdminBundle:Promo:promo }
+
+amandine_admin_addpromo:
+    path: /admin/promo/add
+    defaults: { _controller: AmandineAdminBundle:Promo:add }
+
+amandine_admin_viewpromo:
+    path: /admin/promo/view/{id}
+    defaults: { _controller: AmandineAdminBundle:Promo:view }
+
+amandine_admin_updatepromo:
+    path: /admin/promo/update/{id}
+    defaults: { _controller: AmandineAdminBundle:Promo:update }
+
+amandine_admin_deletepromo:
+    path: /admin/promo/delete/{id}
+    defaults: { _controller: AmandineAdminBundle:Promo:delete }

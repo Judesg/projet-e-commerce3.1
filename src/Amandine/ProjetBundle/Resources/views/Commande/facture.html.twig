@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta charset="UTF-8" >
+	</head>
+	<body>
+		<h1>Le dodo Parisien </h1>
+		<div>
+			Reference Commande : {{commande.id}} <br>
+			Date de commande :{{ commande.validatingDate|localizeddate('none','none','fr',null,'d MMMM Y') }} <br>
+			
+		</div>
+		<div>
+			<div>
+			<h2>Facturé a :</h2>
+				Nom : {{ user.userLastName }}<br>
+				Prénom : {{ user.userFirstName }}<br>
+				Adresse : {{ user.address }}<br>
+				Code Postale : {{ user.pc }}<br>
+				Ville : {{ user.city }}<br>
+			</div>
+			<div>
+				<h2>Commande :</h2>
+				prix HT: {{ commande.htPrice}}€<br>
+				prix TTC:  {{ commande.ttcPrice}}€<br>
+				Taux TVA: 20.0 %<br>
+				Montant TVA :{{ commande.ttTva}}€<br>
+				Mode de paiement : {{ commande.paiement}}<br>
+				Mode de livraison : {{ commande.livraison}}<br><br>
+				
+			</div>
+			<div style="display: -webkit-box;display: -webkit-flex;display: flex; flex-direction: row;">
+				<div >
+		 			{% for keys  in allProduct  %}
+
+		 		 		{% for key, value in keys %}
+		 					{{ value.name }} 
+		 					{{ value.htPrice  * (1+(20/100))}}€ <br>
+		 				{% endfor %} 
+		 			{% endfor %}
+	 			</div>
+	 			<div>
+	 				{% for keys in products %}
+	 					{% for key,value in keys %}
+	 						<div>x {{ value }}</div>
+	 					{% endfor %}
+	 				{% endfor %}
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

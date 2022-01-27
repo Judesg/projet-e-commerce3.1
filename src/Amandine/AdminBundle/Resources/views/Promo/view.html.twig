@@ -1,0 +1,21 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+
+	<h2>{{ promo.code }}</h2>
+	<ul class="list-group page-produit">
+		<li class="list-group-item"><span>Référence</span> : {{ promo.id }}</li>
+		<li class="list-group-item"><span>type</span> : {{ promo.type }}</li>
+		<li class="list-group-item"><span>date de fin</span> : {{ promo.deadline|date('Y-m-d') }}</li>
+		<li class="list-group-item"><span>Date de départ</span> : {{ promo.startingDate|date('Y-m-d') }}</li>
+		<li class="list-group-item"><span>Code</span> : {{ promo.code }}</li>
+		<li class="list-group-item"><span>Valeur</span> : {{ promo.value }}</li>
+		
+
+	</ul>
+
+	
+	<a class="btn btn-info" href="{{ path('amandine_admin_updatepromo', {'id' : promo.id}) }}">Modifier</a>
+	<a class="btn btn-info" href="{{ path('amandine_admin_deletepromo', {'id' : promo.id}) }}">Supprimer</a>
+	
+{% endblock %}

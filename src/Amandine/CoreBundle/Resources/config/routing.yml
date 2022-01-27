@@ -1,0 +1,5 @@
+amandine_core_home:
+    path: /
+    defaults:
+        _controller: AmandineProjetBundle:Pages:accueil
+

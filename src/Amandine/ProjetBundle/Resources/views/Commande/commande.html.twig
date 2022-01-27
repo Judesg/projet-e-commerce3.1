@@ -1,0 +1,92 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{# Variables pour le calcul de la commande#}
+{% set totalHT = 0 %}
+{% set totalTTC = 0 %}
+
+{% block title %}
+    Commande - {{ parent() }}
+{% endblock title%}
+
+{% block body %}
+    <section id="content-commande">
+	    <div id="titre-commande">
+            <h2>Votre commande </h2><br>
+        </div>
+
+        <div>
+            {% if products | length > 0 %}
+                <div>
+                
+                    <table class="table" id="tab-commande">
+                        <thead>
+                        <tr>
+                            <th id=none></th>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Référence</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix total</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for product in products %}
+                                <tr>
+                                    <td><a href=" {{ path('amandine_projet_produit', {'id': product.id})}}"><img src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}"></a></td>
+                                    <td class=""><a href=" {{ path('amandine_projet_produit', {'id': product.id})}}">{{ product.name }}</a></td>
+                                    <td class="">{{ basket[product.id] }}</td>
+                                    <td class="">{{ product.id }}</td>
+                                    <td class="">{{ product.htPrice * (1+(20/100))}} €</td>
+                                    <td class="">{{ (product.htPrice * (1+(20/100)))* basket[product.id]}} €</td>
+                                    
+                                </tr>
+                                {# Additione le total des produits #}
+                                {% set totalHT = totalHT + (product.htPrice * basket[product.id]) %}
+                                {% set totalTTC = ((totalHT *0.2)+ totalHT )%}
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="total-commande">
+                    <div class="">
+                        <span class=""><strong>Prix total HT : </strong></span>
+                        <span class="">{{ totalHT }} €</span>
+                    </div>
+
+                    <div class="">
+                        <span class=""><strong>TVA : </strong></span>
+                        <span class="">20.00 %</span>
+                    </div>
+
+                        {% set totalTTC = ((totalHT *0.2)+ totalHT )%}
+                    <div class="">
+                        <span class=""><strong>Montant TVA total : </strong></span>
+                        <span class="">{{ totalTTC - totalHT}} €</span>
+                    </div>
+
+                    <div class="">
+                        <span class=""><strong>Prix total TTC : </strong></span>
+                        <span class="">{{ totalTTC }} €</span>
+                    </div>
+                </div>
+               
+                <div>
+                    {{ form_start(form ) }}
+
+                    {{ form_widget(form.htPrice, {'value': "#{totalHT }"}) }}
+                    
+                    {{ form_widget(form.ttcPrice, {'value': "#{ totalTTC }"}) }}
+                    {{ form_widget(form.ttTva, {'value': "#{ totalTTC - totalHT }"}) }}
+                
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+
+            {% endif %}
+        </div>
+
+	</section>
+{% endblock %}

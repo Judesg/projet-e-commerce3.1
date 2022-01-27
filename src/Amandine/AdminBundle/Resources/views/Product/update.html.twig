@@ -1,0 +1,20 @@
+{% extends "AmandineAdminBundle::layout.html.twig" %}
+
+{% block content %}
+<div id="group-ajout-produit">
+<div id="formulaire">
+<h2>Ajouter un Produit</h2>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+</div>
+<div id="photo-actuelles">
+vos photos actuelles <br>
+
+photo : <img class="img-product-page" src="{{ asset('assets/imgs/img-product/' ~ product.photo.fileName) }}" alt="{{ product.name }}">
+photo bis :<img class="img-product-page" src="{{ asset('assets/imgs/img-product/' ~ product.photoBis.fileName) }}" alt="{{ product.name }}">
+
+</div>
+</div>
+
+{% endblock %}

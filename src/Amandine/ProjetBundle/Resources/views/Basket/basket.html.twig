@@ -1,0 +1,128 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{# Variables pour le calcul de la commande#}
+{% set totalHT = 0 %}
+{% set totalTTC = 0 %}
+
+{% block title %}
+    Panier - {{ parent() }}
+{% endblock title%}
+
+{% block body %}
+    <div id="blue">
+        <div class="container">
+            <div class="row centered">
+                <div class="">
+                    <h4>DETAIL DE VOTRE PANIER</h4>
+                    <p>VOUS AVEZ {{ products|length }}
+                        {{   products|length > 1 ? 'ARTICLES' : 'ARTICLE' }}.</p>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!--  bluewrap -->
+    <div class="container">
+        <div class="row">
+            <div class="">
+
+                {% if products | length > 0 %}
+                    <h2>Votre panier</h2><br>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Référence</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix total</th>
+                            <th></th>
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        {% for product in products %}
+                            <tr>
+                                <td><a href=" {{ path('amandine_projet_produit', {'id': product.id})}}"><img src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}"></a></td>
+                                <td class=""><a href=" {{ path('amandine_projet_produit', {'id': product.id})}}">{{ product.name }}</a></td>
+                                <td class="">
+                                    <form class="" action="{{ path('amandine_projet_add_basket', {'id': product.id}) }}" method="get">
+                                        <div class="">
+                                            <select name="quantity" class="form-control" onchange="this.form.submit()">
+                                                {% for i in 1..product.stock %}
+                                                    <option value="{{ i }}" {% if i == basket[product.id] %} selected="selected" {% endif %}>{{ i }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        
+
+                                    </form>
+                                </td>
+                                <td class="">{{ product.id }}</td>
+                                <td class="">{{ product.htPrice * (1+(20/100))}} €</td>
+                                <td class="">{{ (product.htPrice * (1+(20/100)))* basket[product.id]}} €</td>
+                                <td><a href="{{ path('amandine_projet_remove_basket', { 'id': product.id }) }}" title="Supprimer"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                            {# Additione le total des produits #}
+                            {% set totalHT = totalHT + (product.htPrice * basket[product.id]) %}
+
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                    
+                        <div class="row">
+                            <span class=""><strong>Prix total HT : </strong></span>
+                            <span class="">{{ totalHT }} €</span>
+                        </div>
+
+                        <div class="row">
+                            <span class=""><strong>TVA : </strong></span>
+                            <span class="">20.00 %</span>
+                        </div>
+
+                            {% set totalTTC = ((totalHT *0.2)+ totalHT )%}
+                        <div class="row">
+                            <span class=""><strong>Montant TVA total : </strong></span>
+                            <span class="">{{ totalTTC - totalHT}} €</span>
+                        </div>
+
+                        <div class="row">
+                            <span class=""><strong>Prix total TTC : </strong></span>
+                            <span class="col-lg-2">{{ totalTTC }} €</span>
+                        </div>
+                        
+                         
+
+                        
+
+                       
+
+
+
+                    <div class="">
+                        <a href="{{ path('amandine_projet_commande')}}" class="btn btn-success btn-lg">Valider ma commande</a>
+                    </div>
+                    <div class="">
+                        <a href="{{ path('amandine_projet_remove_all_basket')}}" class="btn btn-success btn-lg">Supprimer ma commande</a>
+                    </div> 
+                    <div class="">
+                        <a href="{{ path('amandine_projet_accueil') }}" class="btn btn-primary btn-lg">Continuer mes achats</a>
+                    </div>
+
+                {% else %}
+
+                    
+                    <h2 class="cart_empty_text">Votre panier est vide</h2>
+                   <div class="cart_empty_text">
+                        <a class="btn btn-lg btn-primary " href="{{ path("amandine_projet_accueil") }}">Consulter les produits</a>
+                    </div> 
+                {% endif %}
+            </div>
+        </div>
+</div>
+{% endblock %}

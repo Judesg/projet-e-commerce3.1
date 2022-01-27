@@ -1,0 +1,201 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  Page {{ product.name }} - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	<section id="content-fiche-produit">
+	{% for message in app.flashes('notice') %}
+	    <div class="flash-notice">
+	        {{ message }}
+	    </div>
+	{% endfor %}
+	
+		<div id="content-produit">
+			<div id="slider">
+				<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:600px;height:600px;overflow:hidden;visibility:hidden;">
+		        <!-- Loading Screen -->
+		        
+			        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:600px;overflow:hidden;">
+			            <div>
+			                <img data-u="image" src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}" alt="{{ product.name }}" />
+			            </div>
+			            <div>
+			                <img data-u="image" src="{{ asset('assets/imgs/img-product/' ~ product.photoBis) }}" alt="{{ product.name }}" />
+			            </div>
+			            
+			        </div>
+			        <!-- Bullet Navigator -->
+			        <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+			            <div data-u="prototype" class="i" style="width:16px;height:16px;">
+			                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+			                    <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+			                </svg>
+			            </div>
+			        </div>
+			        <!-- Arrow Navigator -->
+			        <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+			            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+			                <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+			            </svg>
+			        </div>
+			        <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+			            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+			                <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+			            </svg>
+			        </div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="myModalLabel">Eco-participation</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			      </div>
+			      <div class="modal-body">
+			      <p>
+			        l'éco-participation pour les meubles est entierement reservée a l'éco-mobilier et consacrée au développement d'une filiere de collect, de recyclage, et de réutilisation des meuble usagés. <br> <span class="bold span-modal">Chacun contribue ainsi à la protection de l'environement et au développement de l'économie solidaire</span >
+			        </p>
+			      <hr>
+			        <p>Les produits électrique et électronique et les ampoules sont soumis a une écoparticipation. Son montant est entierement reversé a l'éco-organisme ESR et sert à financer le recyclage des déchets d'équipements éléctrique et électronique (DEEE). <br>
+			      	<span  class="bold span-modal">Grace a cette éco-participation, chacun contribue a l'amélioration de la collecte, à la dépollution et au recyclage des anciens produits.</span>
+			      	</p>
+			      </div>
+			      
+			      
+			    </div>
+			  </div>
+			</div>
+
+			<div id="prix-produit">
+				<h2>{{ product.name }}</h2>
+				
+				<a href="#description-produit">En savoir plus</a>
+				<h3>{{ product.htPrice * (1+(20/100)) }} € ttc</h3>
+				
+				<p> Dont 0.25€ <a href="#myModal" data-toggle="modal" data-target="#myModal">d'éco-part</a></p>
+
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+					<form action="{{ path('amandine_projet_add_basket', {'id': product.id}) }}" method="GET" id="formulaire-ajout-produit">
+						{% if product.stock > 0 %}
+		                    <div class="form-group">
+		                 		
+		                        <select name="stock" class="form-control">
+		                            {% for i in 1..product.stock %}
+		                                <option value="{{ i }}">{{ i }}</option>
+		                            {% endfor %}
+		                        </select>
+		                        <input type="submit" value="Ajouter au panier" class="">
+		                    </div>
+		                {% endif %}
+					</form>
+				{% else %}
+					Veuillez vous connecter pour ajouter un produit à votre panier.
+				{% endif %}
+
+				<hr>
+
+				{% if product.stock > 5 %}
+					<p>En stock</p>
+				{% elseif product.stock < 5 and product.stock > 0 %}
+					<p>Il n'en reste plus que {{ product.stock }}</p>
+				{% elseif product.stock < 1 %}
+					<p>Indisponible</p>
+				{% endif %}
+
+				<div>
+					<p>frais de livraison estimé :</p>
+					<p>En point relai : GRATUIT</p>
+					<p>En Magasin : GRATUIT</p>
+					<p>A domicile : GRATUIT</p>
+				</div>
+			</div>
+		</div>
+		<div id="description-produit">
+				<ul class="list-group page-produit">
+					<li class="list-group-item"><span>Description</span> : {{ product.description }}</li>
+					<li class="list-group-item"><span>Entretien</span> : {{ product.maintenance }}</li>
+					<li class="list-group-item"><span>Matière</span> : {{ product.material }}</li>
+					<li class="list-group-item"><span>Couleur</span> : {{ product.color }}</li>
+					
+
+				</ul>
+		</div>
+		<div id="produit-aleatoire">
+			<h3>Vous aimerez aussi </h3>
+			<div id="proposition-produit">
+				{{ render(controller('Amandine\\ProjetBundle\\Controller\\ProductController::productAleatoireAction'))}}
+			</div>
+		</div>
+
+		<div id="avis-commentaire">
+			<article id="afficher-commentaire">
+				
+				 <section class="comments" id="comments">
+			        <section class="previous-comments">
+			            <h3>{{ product.comment.count }}  Commentaires client</h3>
+			            {% include 'AmandineProjetBundle:Comment:index.html.twig' with { 'listcomment': listcomment } %}
+			        </section>
+			    </section>
+				<div class="text-center">{{ knp_pagination_render(listcomment) }}</div>
+			</article>
+
+			<section class="comment" id="comment">
+			    <h3>Ajouter un commentaire</h3>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+
+			        {{ render(controller('Amandine\\ProjetBundle\\Controller\\CommentController::newAction', { 'id': product.id }))  }}
+
+				{% else %}
+
+					<article>
+						<p>Veuillez vous connecter pour laisser un avis </p>
+						<a class="btn-connect" href="{{ path('fos_user_security_login') }}">Connexion</a>
+					</article>
+					
+				{% endif %}
+			</section>
+
+
+		</div>
+
+
+	</section>
+
+	<script>
+	$("p#content-comment").each(function(i){
+        // on récupère la longueur du texte et on coupe à la longueur 100 (s'il est aussi long)
+        var contenu = $(this).html();
+        var longueur = contenu.length;
+        if (longueur > 100){
+            var debut = contenu.substr(0,100);
+            var suite = contenu.substr(101);
+            $(this).html(debut);
+            $(this).append("<span class='btn-afficher' id='continuer"+(i+1)+"'> Afficher la suite...</span>");
+            $(this).append("<span id='suite"+(i+1)+"'>"+suite+"</span>");
+            $(this).append("<span class='btn-afficher' id='masquer"+(i+1)+"'> Réduire</span>");
+            $("#suite"+(i+1)).hide();
+            $(this).find("span#continuer"+(i+1)).click(
+            function(){
+                $(this).hide();
+                $("#suite"+(i+1)).fadeIn("slow");
+                $("#masquer"+(i+1)).fadeIn("slow");
+            })
+            $(this).find("span#masquer"+(i+1)).click(
+            function(){
+                $(this).hide();
+                $("#suite"+(i+1)).fadeOut("slow",function(){
+                $("#continuer"+(i+1)).fadeIn("slow")});
+            }).hide()
+        }
+    });
+	</script>
+
+	
+
+
+{% endblock %}

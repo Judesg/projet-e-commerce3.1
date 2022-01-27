@@ -1,0 +1,15 @@
+{% for commande in attenteCommande %}
+<article id="item-list-commande">
+	Statut : En cours de préparation <br>
+	Reference Commande : {{commande.id}} <br>
+	Date de commande :{{ commande.validatingDate|localizeddate('none','none','fr',null,'d MMMM Y') }} <br>
+	prix HT: {{ commande.htPrice}}€<br>
+	prix TTC {{ commande.ttcPrice}}€<br>
+	Montant TVA :{{ commande.ttTva}}€<br>
+	Mode de paiement : {{ commande.paiement}}<br>
+	Mode de livraison {{ commande.livraison}}<br>
+	Imprimer votre facture au format PDF<a href="{{ path('amandine_projet_facture', {'id' :commande.id}) }} "> ICI</a><br><br>
+</article>
+{% else %}
+Pas de commande en cours de préparation 
+{% endfor %}

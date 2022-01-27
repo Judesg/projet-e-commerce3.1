@@ -1,0 +1,8 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}Ajouter un commentaire{% endblock%}
+
+{% block body %}
+    <h1>Ajouter un commentaire pour le produit "{{ comment.product.name }}"</h1>
+    {% include 'AmandineProjetBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

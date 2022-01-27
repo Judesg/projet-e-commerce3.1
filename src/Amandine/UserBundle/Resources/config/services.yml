@@ -1,0 +1,13 @@
+services:
+#    amandine_user.example:
+#        class: Amandine\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    Amandine\UserBundle\DataFixtures\:
+        resource: '../../DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+    amandine_user.profile.form.type:
+        class: Amandine\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: amandine_user_profile }

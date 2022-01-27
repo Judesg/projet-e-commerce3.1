@@ -1,0 +1,27 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} - Page d'accueil
+{% endblock %}
+
+{% block body %}
+
+		<section class="content">
+			<div class="content-accueil">
+
+				<article id="accueil-nouveaute" class="col-lg-10 justify-content-center">
+					<h2 class="offset-md-3 col-md-6 text-white  display-4 text-center">Les nouveautés</h2>
+					<a href="{{ path('amandine_projet_nouveaute')}}" class=" link-article-accueil col-md-2 align-self-center ">Voir la collection</a>
+				</article>
+
+				<article id="collection-paques" class="col-lg-10 justify-content-center">
+					<h2 class="offset-md-2 col-md-8 text-white  display-4 text-center">Nos meilleures ventes</h2>
+					<a href="{{ path('amandine_projet_meilleure_vente')}}" class=" link-article-accueil col-md-2 align-self-center ">Voir la collection</a>
+				</article>
+
+				
+
+			</div>
+		</section>
+
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends "@AmandineCore/layout.html.twig" %}
+
+{% block title %}
+  Nouveauté - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	<aside class="side-bar-produit" >
+
+
+			<div id="options" class="container filtering">
+
+				<div class="">
+					<h2>Matière</h2>
+			        <div class="option-set" data-group="matiere">
+			        	<div>
+			          		<input type="checkbox" value="" id="matiere-all" class="all" checked>
+			          		<label for="matiere-all">Toutes les matieres</label>
+			          	</div>
+			            {% for product in nouveaute %}
+			            	<div>
+								<input type="checkbox" class="stat material" value=".{{ product.material }}" id="{{ product.material}}" data-id="{{ product.material }}" data-type="material">
+								<label for="{{ product.material }}">{{ product.material }}</label>
+								</div>
+						{% endfor %}
+
+			          
+			        </div>
+				</div>
+
+				<div class="">
+					<h2>Colors</h2>
+			        <div class="option-set" data-group="colors">
+			          <div>
+			          	<input type="checkbox" value="" id="colors-all" class="all" checked>
+			          	<label for="colors-all">Toutes les couleurs</label>
+			          </div>
+			          {% for product in nouveaute %}
+			          	<div>
+							<input type="checkbox" class="stat color" value=".{{ product.color }}" id="{{ product.color}}" data-id="{{ product.color }}" data-type="color">
+							<label for="{{ product.color }}">{{ product.color }}</label>
+						</div>
+					  {% endfor %}
+			        </div>
+				</div>
+
+				<div class="">
+					{# <div>
+							<input type="range" class="" id="price-range" min="0" max="11" name="price" data-type="price" list="price">
+							<datalist id="price">
+							  <option value="0" label="0">
+							  <option value="10">
+							  <option value="20">
+							  <option value="30">
+							  <option value="40">
+							  <option value="50" label="50">
+							  <option value="60">
+							  <option value="70">
+							  <option value="80">
+							  <option value="90">
+							  <option value="100" label="100">
+							</datalist>
+						</div> #}
+
+					<input type="text" class="js-range-slider" name="my_range" value=""
+				        
+				    />
+
+				</div>
+			</div>  
+
+		</aside>
+
+		<section class="content-produit" id="">
+		  <h2>Toute nos nouveautés </h2>
+		  <div class="content-produit-list filter-cat-results" id="">
+
+			 {% for product in nouveaute %}
+
+			 	<article class="classdata" data-id="{{ product.id }}" data-color="{{ product.color }}" data-material="{{ product.material }}" data-price="{{ product.htPrice * (1+(20/100)) }}" >
+
+			 		<a href="{{ path('amandine_projet_produit' ,{'id' : product.id }) }}"><img class="img-product-page" src="{{ asset('assets/imgs/img-product/' ~ product.photo) }}" alt="{{ product.name }}"></a>
+			 		<h3>{{ product.htPrice * (1+(20/100)) }} € ttc</h3>
+			 		<h3><a href="{{ path('amandine_projet_produit' ,{'id' : product.id }) }}">{{ product.name }}</a></h3>
+
+			 		
+
+			 	</article>
+
+			 {% endfor %}
+		  
+		  </div>
+
+
+		</section>
+		
+
+
+		 <script type="text/javascript">
+		 //filtre jquery
+			$( document ).ready(function() {
+				
+
+				$('.stat').on('click', function() {
+				  var $stats = $('.stat:checked');
+				  var $items = $('.content-produit-list article');
+
+				  $items.show();
+				  if ($stats.length == 0)
+				    return;
+
+				  var $vstats = $.map($stats, function(o) {return $(o).data('id'); });
+				  
+				  $stats.each(function() 
+				  {
+				    var $stat = $(this);
+				    $items.filter(function() {
+				        return $vstats.indexOf($(this).data($stat.data('type'))) < 0;
+				    }).hide();
+				  })
+				});
+
+
+		// price range 
+			
+		    $(".js-range-slider").ionRangeSlider({
+		    	skin: "flat",
+		    	min: 0,
+		    	max: 200,
+		    	from: 200,
+		    	grid: true
+		    	
+		    });
+
+		    $(".js-range-slider").on("change", function(){
+		    		var $inp = $(this);
+        			var range = $inp.prop("value"); // reading input value
+        			var data = $('.classdata');
+
+        			//console.log(data);
+        			$(data).each(function(){
+		    			if( $(this).data('price') > range ){
+		    				//$(this).hide();
+		    				$(this).fadeOut({
+		    				speed: 5000
+
+		    				});
+		    			} else if ($(this).data('price') < range) {
+		    				//$(this).show();
+		    				$(this).fadeIn({
+		    				speed: 5000
+		    				});
+		    			}
+        				
+        			});
+		 
+		    });
+
+		 });       
+
+		</script> 
+
+{% endblock %}
